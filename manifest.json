@@ -19,7 +19,13 @@
 
   "web_accessible_resources": [
     {
-      "resources": ["viewer.html", "viewer.js", "styles.css"],
+      "resources": [
+        "viewer.html",
+        "viewer.js",
+        "styles.css",
+        "pdfjs/pdf.mjs",
+        "pdfjs/pdf.worker.mjs"
+      ],
       "matches": ["<all_urls>"]
     }
   ],
