@@ -2,6 +2,7 @@ import * as pdfjsLib from "./pdfjs/pdf.mjs";
 pdfjsLib.GlobalWorkerOptions.workerSrc = "./pdfjs/pdf.worker.mjs";
 const params = new URLSearchParams(window.location.search);
 const pdfURL = params.get("pdf");
+console.log("PDF URL:", pdfURL);
 const canvas = document.getElementById("pdfCanvas");
 const context = canvas.getContext("2d");
 async function renderPDF() {
