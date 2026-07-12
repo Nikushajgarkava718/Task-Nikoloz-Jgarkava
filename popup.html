@@ -3,15 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
     <title>PDF Navigator</title>
+    <style>
+      body {
+        width: 250px;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: #0a22f4;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background: #081bc4;
+      }
+    </style>
   </head>
   <body>
-    <div class="popup">
-      <h2>PDF Navigator</h2>
-      <p>Open any PDF document.</p>
-      <button id="openViewer">Open Viewer</button>
-    </div>
+    <h2>PDF Sentence Navigator</h2>
+    <button id="openViewer">Open PDF</button>
     <script src="popup.js"></script>
   </body>
 </html>
