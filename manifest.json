@@ -1,22 +1,17 @@
 {
   "manifest_version": 3,
   "name": "PDF Sentence Navigator",
-  "description": "Navigate through PDF sentences using TAB and Shift + TAB.",
-  "version": "1.0",
-
-  "permissions": ["tabs", "activeTab", "storage"],
-
+  "version": "1.0.0",
+  "description": "Navigate through PDF sentences using Tab and Shift+Tab.",
+  "permissions": ["activeTab", "tabs", "storage"],
   "host_permissions": ["<all_urls>"],
-
   "action": {
     "default_popup": "popup.html",
-    "default_title": "PDF Navigator"
+    "default_title": "PDF Sentence Navigator"
   },
-
   "background": {
     "service_worker": "background.js"
   },
-
   "web_accessible_resources": [
     {
       "resources": [
@@ -29,7 +24,6 @@
       "matches": ["<all_urls>"]
     }
   ],
-
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
