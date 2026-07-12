@@ -25,9 +25,25 @@ async function loadPDF() {
   }
 
   statusEl.textContent = "იტვირთება PDF...";
+  console.log("Loading PDF from:", pdfURL);
 
   try {
-    const pdf = await pdfjsLib.getDocument(pdfURL).promise;
+    let loadingTask;
+
+    if (pdfURL.startsWith("file://")) {
+      const response = await fetch(pdfURL);
+      if (!response.ok) {
+        throw new Error(
+          "ფაილის წაკითხვა ვერ მოხერხდა (სტატუსი: " + response.status + ")",
+        );
+      }
+      const arrayBuffer = await response.arrayBuffer();
+      loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    } else {
+      loadingTask = pdfjsLib.getDocument(pdfURL);
+    }
+
+    const pdf = await loadingTask.promise;
 
     for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
       const page = await pdf.getPage(pageNum);
