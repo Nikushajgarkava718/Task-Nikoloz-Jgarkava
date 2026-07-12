@@ -1,17 +1,20 @@
 document.getElementById("openViewer").addEventListener("click", async () => {
-  const tabs = await chrome.tabs.query({
+  const [tab] = await chrome.tabs.query({
     active: true,
     currentWindow: true,
   });
 
-  if (!tabs.length) return;
+  if (!tab || !tab.url) {
+    alert("No active tab found.");
+    return;
+  }
 
-  const currentTab = tabs[0];
+  const viewerUrl =
+    chrome.runtime.getURL("viewer.html") +
+    "?pdf=" +
+    encodeURIComponent(tab.url);
 
   chrome.tabs.create({
-    url:
-      chrome.runtime.getURL("viewer.html") +
-      "?pdf=" +
-      encodeURIComponent(currentTab.url),
+    url: viewerUrl,
   });
 });
