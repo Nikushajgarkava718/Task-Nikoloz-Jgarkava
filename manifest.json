@@ -3,7 +3,7 @@
   "name": "PDF Sentence Navigator",
   "version": "1.0.0",
   "description": "Navigate through PDF sentences using Tab and Shift+Tab.",
-  "permissions": ["activeTab", "tabs", "storage"],
+  "permissions": ["activeTab", "tabs"],
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
@@ -23,10 +23,5 @@
       ],
       "matches": ["<all_urls>"]
     }
-  ],
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  }
+  ]
 }
